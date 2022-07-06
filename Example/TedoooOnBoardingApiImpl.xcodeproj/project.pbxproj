@@ -12,13 +12,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		19E0C95EE2B323EF4A6C01AA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		19E0C95EE2B323EF4A6C01AA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		22DEB08B83BF606989482D45 /* Pods-TedoooOnBoardingApiImpl_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TedoooOnBoardingApiImpl_Tests.release.xcconfig"; path = "Target Support Files/Pods-TedoooOnBoardingApiImpl_Tests/Pods-TedoooOnBoardingApiImpl_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		35C518473D0644A23EA6D92E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		35C518473D0644A23EA6D92E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* TedoooOnBoardingApiImpl_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TedoooOnBoardingApiImpl_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		ADB968DA8C057AB472E5EADB /* TedoooOnBoardingApiImpl.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TedoooOnBoardingApiImpl.podspec; path = ../TedoooOnBoardingApiImpl.podspec; sourceTree = "<group>"; };
+		ADB968DA8C057AB472E5EADB /* TedoooOnBoardingApiImpl.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TedoooOnBoardingApiImpl.podspec; path = ../TedoooOnBoardingApiImpl.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C010EDA427FD4F8498B3730A /* Pods-TedoooOnBoardingApiImpl_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TedoooOnBoardingApiImpl_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TedoooOnBoardingApiImpl_Tests/Pods-TedoooOnBoardingApiImpl_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F811BCAE78AB90C733E35701 /* Pods_TedoooOnBoardingApiImpl_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TedoooOnBoardingApiImpl_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,7 +87,6 @@
 				C010EDA427FD4F8498B3730A /* Pods-TedoooOnBoardingApiImpl_Tests.debug.xcconfig */,
 				22DEB08B83BF606989482D45 /* Pods-TedoooOnBoardingApiImpl_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -131,10 +130,6 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -147,6 +142,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
