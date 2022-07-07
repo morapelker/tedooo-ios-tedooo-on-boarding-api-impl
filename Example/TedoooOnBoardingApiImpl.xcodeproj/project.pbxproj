@@ -176,12 +176,14 @@
 				"${PODS_ROOT}/Target Support Files/Pods-TedoooOnBoardingApiImpl_Tests/Pods-TedoooOnBoardingApiImpl_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/TedoooOnBoardingApi/TedoooOnBoardingApi.framework",
 				"${BUILT_PRODUCTS_DIR}/TedoooOnBoardingApiImpl/TedoooOnBoardingApiImpl.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TedoooOnBoardingApi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TedoooOnBoardingApiImpl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
