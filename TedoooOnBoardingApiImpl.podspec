@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TedoooOnBoardingApiImpl'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'TedoooOnBoardingApiImpl'
 
 # This description is used to generate tags and improve search results.
@@ -40,6 +40,7 @@ TedoooOnBoardingApiImpl
   # s.frameworks = 'UIKit', 'MapKit'
   
   s.dependency 'TedoooOnBoardingApi'
+  s.dependency 'Swinject'
   
   # s.dependency 'AFNetworking', '~> 2.3'
 end
