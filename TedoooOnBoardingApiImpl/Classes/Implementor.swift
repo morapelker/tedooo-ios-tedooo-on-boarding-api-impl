@@ -9,11 +9,14 @@ import Foundation
 import TedoooOnBoardingApi
 import Combine
 import Swinject
+import TedoooRestApi
 
 public class ApiImpl: TedoooOnBoardingApi {
     
+    private let restApi: TedoooRestApi.RestApiClient
+    
     public init(container: Container) {
-        
+        self.restApi = container.resolve(TedoooRestApi.RestApiClient.self)!
     }
     
     public func finishOnBoarding(request: FinishOnBoardingRequest) -> AnyPublisher<Any?, Never> {
@@ -21,7 +24,7 @@ public class ApiImpl: TedoooOnBoardingApi {
         return Just(nil).delay(for: 1, scheduler: DispatchQueue.main).eraseToAnyPublisher()
     }
     
-    public func getBusinessSuggestions() -> AnyPublisher<[BusinessSuggestion], Never> {
+    public func getBusinessSuggestions(interests: [String]) -> AnyPublisher<[BusinessSuggestion], Never> {
         return Just([
             BusinessSuggestion(id: "ShopId1", name: "Shop 1", rating: 5, totalReviews: 900, categories: ["Handmade Crafts", "Textile"], description: "description", image: "https://i.imgur.com/sBmKIeD.png"),
             BusinessSuggestion(id: "ShopId2", name: "Shop 2", rating: 4, totalReviews: 450, categories: ["Handmade Crafts", "Textile", "Homemade"], description: "description", image: nil),
@@ -29,11 +32,11 @@ public class ApiImpl: TedoooOnBoardingApi {
         ]).delay(for: 2.0, scheduler: DispatchQueue.main).eraseToAnyPublisher()
     }
     
-    public func getGroupSuggestions() -> AnyPublisher<[GroupSuggestion], Never> {
-        return Just([
-            GroupSuggestion(id: "GroupId1", name: "Wreath lovers", participants: 1500, description: "Hi there! this group is for people who are interested in Crafty fun and handmade items", image: "https://i.imgur.com/sBmKIeD.png"),
-GroupSuggestion(id: "GroupId2", name: "Crafty fun", participants: 31010, description: "Our group is made to support crafters and handmade creators meet and share tips", image: "https://i.imgur.com/r4PtogW.png"),
-GroupSuggestion(id: "GroupId3", name: "Handmade fans", participants: 456, description: "Our group is made to support crafters and handmade creators meet and share tips!", image: nil),
-        ]).delay(for: 3.0, scheduler: DispatchQueue.main).eraseToAnyPublisher()
+    private struct GroupSuggestionResponse: Decodable {
+        let suggestions: [GroupSuggestion]
+    }
+    
+    public func getGroupSuggestions(interests: [String]) -> AnyPublisher<[GroupSuggestion], Never> {
+        return restApi.requestRx(outputType: GroupSuggestionResponse.self, request: HttpRequest(path: "suggestions/groups", withAuth: true)).map({$0.suggestions}).replaceError(with: []).eraseToAnyPublisher()
     }
 }
