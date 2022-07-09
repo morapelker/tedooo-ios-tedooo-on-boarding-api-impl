@@ -36,7 +36,11 @@ public class ApiImpl: TedoooOnBoardingApi {
         let suggestions: [GroupSuggestion]
     }
     
+    private struct InterestsRequest: Encodable {
+        let interests: [String]
+    }
+    
     public func getGroupSuggestions(interests: [String]) -> AnyPublisher<[GroupSuggestion], Never> {
-        return restApi.requestRx(outputType: GroupSuggestionResponse.self, request: HttpRequest(path: "suggestions/groups", withAuth: true)).map({$0.suggestions}).replaceError(with: []).eraseToAnyPublisher()
+        return restApi.requestRx(outputType: GroupSuggestionResponse.self, request: HttpRequest(path: "suggestions/groups", withAuth: true, method: .post), parameters: InterestsRequest(interests: interests) ).map({$0.suggestions}).replaceError(with: []).eraseToAnyPublisher()
     }
 }
