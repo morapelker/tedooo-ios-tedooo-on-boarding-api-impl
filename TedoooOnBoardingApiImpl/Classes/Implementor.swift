@@ -12,7 +12,7 @@ import Swinject
 import TedoooRestApi
 
 public class ApiImpl: TedoooOnBoardingApi {
-    
+   
     private let restApi: TedoooRestApi.RestApiClient
     
     public init(container: Container) {
@@ -44,4 +44,17 @@ public class ApiImpl: TedoooOnBoardingApi {
     public func getGroupSuggestions(interests: [String]) -> AnyPublisher<[GroupSuggestion], Never> {
         return restApi.requestRx(outputType: GroupSuggestionResponse.self, request: HttpRequest(path: "suggestions/groups", withAuth: true, method: .post), parameters: InterestsRequest(interests: interests) ).map({$0.suggestions}).replaceError(with: []).eraseToAnyPublisher()
     }
+    
+    private struct HasSuggestionResponse: Decodable {
+        let hasSuggestions: Bool
+    }
+    
+    public func hasSuggestions() -> AnyPublisher<Bool, Never> {
+        return restApi.requestRx(outputType: HasSuggestionResponse.self, request: HttpRequest(path: "onboarding/path", withAuth: true))
+            .map({$0.hasSuggestions})
+            .replaceError(with: false)
+            .eraseToAnyPublisher()
+    }
+    
+    
 }
