@@ -20,8 +20,9 @@ public class ApiImpl: TedoooOnBoardingApi {
     }
     
     public func finishOnBoarding(request: FinishOnBoardingRequest) -> AnyPublisher<Any?, Never> {
-        print("finish", request)
-        return Just(nil).delay(for: 1, scheduler: DispatchQueue.main).eraseToAnyPublisher()
+        return restApi.requestRx(request: HttpRequest(path: "onboarding/finish", withAuth: true, method: .post), parameters: request)
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
     }
     
     private struct BusinessSuggestionsResponse: Decodable {
