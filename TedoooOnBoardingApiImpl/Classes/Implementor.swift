@@ -29,8 +29,8 @@ public class ApiImpl: TedoooOnBoardingApi {
         let suggestions: [BusinessSuggestion]
     }
     
-    public func getBusinessSuggestions(interests: [String]) -> AnyPublisher<[BusinessSuggestion], Never> {
-        return restApi.requestRx(outputType: BusinessSuggestionsResponse.self, request: HttpRequest(path: "suggestions/businesses", withAuth: true, method: .post), parameters: InterestsRequest(interests: interests) ).map({$0.suggestions}).replaceError(with: []).eraseToAnyPublisher()
+    public func getBusinessSuggestions(interests: [String], limit: Int) -> AnyPublisher<[BusinessSuggestion], Never> {
+        return restApi.requestRx(outputType: BusinessSuggestionsResponse.self, request: HttpRequest(path: "suggestions/businesses?limit=\(limit)", withAuth: true, method: .post), parameters: InterestsRequest(interests: interests) ).map({$0.suggestions}).replaceError(with: []).eraseToAnyPublisher()
     }
     
     private struct GroupSuggestionResponse: Decodable {
